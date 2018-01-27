@@ -25,26 +25,26 @@
 int isKaprekar(int n) {
 
   if(n < 1) {
-    return 0;
+    return 0; //changed "returned false" to "return 0" to exit the program properly
   }
 
   int i;
   long square = n * (long) n;
-  int numberOfDigits = (int) log10(n) + 1;
+  int numberOfDigits = (int) log10(n) + 1; //changed numDigits to numberOfDigits to match variable
   long modulus = 1;
   long first, second;
 
   //for each possible "split" of the square...
   for(i=1; i<=numberOfDigits; i++) {
     //increase the modulus by a factor of 10
-    modulus *= 10;
+    modulus *= 10; //changed "modulous" to "modulus" to match variable
 
     //split the square into two parts
     first = square / modulus;
     second = square % modulus;
 
     //test if the split makes a Kaprekar number
-    if(second > 0 && first + second == n) {
+    if(second > 0 && first + second == n) { //fixed spacing error
       return 1;
     }
   }
